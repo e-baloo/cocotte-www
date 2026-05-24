@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>the last chicken</title>
+		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Special+Elite&display=swap");
+
+			:root {
+				--ash: #1a1a1a;
+				--dust: #d7b98e;
+				--rust: #a5482d;
+				--sand: #8d7253;
+				--smoke: #2a2622;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				min-height: 100vh;
+				display: grid;
+				place-items: center;
+				background:
+					radial-gradient(circle at 20% 15%, #3b3027 0%, transparent 40%),
+					radial-gradient(circle at 80% 70%, #4c2d1f 0%, transparent 45%),
+					linear-gradient(160deg, #161412 0%, #241f1b 40%, #100f0e 100%);
+				color: var(--dust);
+				overflow: hidden;
+				font-family: "Special Elite", "Courier New", monospace;
+			}
+
+			body::before,
+			body::after {
+				content: "";
+				position: fixed;
+				inset: -20%;
+				pointer-events: none;
+			}
+
+			body::before {
+				background-image:
+					repeating-linear-gradient(
+						0deg,
+						rgba(255, 255, 255, 0.015) 0,
+						rgba(255, 255, 255, 0.015) 2px,
+						transparent 2px,
+						transparent 4px
+					);
+				mix-blend-mode: soft-light;
+				animation: flicker 4s infinite steps(2);
+			}
+
+			body::after {
+				background: radial-gradient(circle, transparent 45%, rgba(0, 0, 0, 0.55) 100%);
+			}
+
+			.card {
+				width: min(90vw, 820px);
+				padding: clamp(2rem, 6vw, 4rem);
+				border: 1px solid rgba(215, 185, 142, 0.25);
+				background: linear-gradient(130deg, rgba(35, 29, 25, 0.8), rgba(17, 15, 13, 0.9));
+				box-shadow:
+					0 0 0 2px rgba(165, 72, 45, 0.25),
+					0 30px 60px rgba(0, 0, 0, 0.6);
+				text-align: center;
+				position: relative;
+			}
+
+			.card::before {
+				content: "ZONE 01";
+				position: absolute;
+				top: -0.75rem;
+				left: 1rem;
+				padding: 0.25rem 0.6rem;
+				background: var(--rust);
+				color: #f3ddd0;
+				font-size: 0.72rem;
+				letter-spacing: 0.12em;
+			}
+
+			h1 {
+				margin: 0;
+				text-transform: uppercase;
+				font-family: "Cinzel", Georgia, serif;
+				font-weight: 800;
+				font-size: clamp(2.2rem, 8vw, 5.4rem);
+				line-height: 0.95;
+				letter-spacing: 0.08em;
+				color: #ecd8b7;
+				text-shadow:
+					0 0 10px rgba(236, 216, 183, 0.25),
+					0 0 35px rgba(165, 72, 45, 0.35),
+					2px 2px 0 #3f2e23;
+				animation: rise 1s ease-out;
+			}
+
+			p {
+				margin: 1.4rem 0 0;
+				font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+				color: #bca27f;
+				letter-spacing: 0.08em;
+			}
+
+			@keyframes flicker {
+				0%,
+				100% {
+					opacity: 0.4;
+				}
+				50% {
+					opacity: 0.55;
+				}
+			}
+
+			@keyframes rise {
+				from {
+					opacity: 0;
+					transform: translateY(14px) scale(0.98);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0) scale(1);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main class="card">
+			<h1>the last chicken</h1>
+			<p>Dernier bastion. Dernier feu. Dernier repas.</p>
+		</main>
+	</body>
+</html>

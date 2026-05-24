@@ -1,0 +1,4 @@
+the-last-chicken.e-baloo.org {
+    root * /srv/cocotte-www/www
+    file_server
+}
